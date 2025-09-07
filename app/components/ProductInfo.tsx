@@ -22,25 +22,25 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
   return (
     <div className="max-w-[400px] flex flex-col gap-4">
       <div className="flex justify-between items-center">
-        <p className="text-heading3-bold">{productInfo.title}</p>
+        <p className="text-xl font-bold">{productInfo.title}</p>
         <HeartFavorite product={productInfo} />
       </div>
 
       <div className="flex gap-2">
-        <p className="text-base-medium text-grey-2">Category:</p>
-        <p className="text-base-bold">{productInfo.category}</p>
+        <p className="text-md font-medium text-gray-700">Category:</p>
+        <p className="text-md font-medium">{productInfo.category}</p>
       </div>
 
-      <p className="text-heading3-bold">$ {productInfo.price}</p>
+      <p className="text-bold">$ {productInfo.price}</p>
 
       <div className="flex flex-col gap-2">
-        <p className="text-base-medium text-grey-2">Description:</p>
-        <p className="text-small-medium">{productInfo.description}</p>
+        <p className="text-md font-medium text-gray-700">Description:</p>
+        <p className="text-sm font-medium">{productInfo.description}</p>
       </div>
 
       {productInfo.colors.length > 0 && (
         <div className="flex flex-col gap-2">
-          <p className="text-base-medium text-grey-2">Colors:</p>
+          <p className="text-md font-medium text-gray-700">Colors:</p>
           <div className="flex gap-2">
             {productInfo.colors.map((color, index) => (
               <p
@@ -59,7 +59,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
 
       {productInfo.sizes.length > 0 && (
         <div className="flex flex-col gap-2">
-          <p className="text-base-medium text-grey-2">Sizes:</p>
+          <p className="text-md font-medium text-gray-700">Sizes:</p>
           <div className="flex gap-2">
             {productInfo.sizes.map((size, index) => (
               <p
@@ -77,22 +77,22 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
       )}
 
       <div className="flex flex-col gap-2">
-        <p className="text-base-medium text-grey-2">Quantity:</p>
+        <p className="text-md font-medium text-gray-700">Quantity:</p>
         <div className="flex gap-4 items-center">
           <MinusCircle
-            className="hover:text-red-1 cursor-pointer"
+            className="hover:text-red-500 cursor-pointer"
             onClick={() => quantity > 1 && setQuantity(quantity - 1)}
           />
-          <p className="text-body-bold">{quantity}</p>
+          <p className="text-md">{quantity}</p>
           <PlusCircle
-            className="hover:text-red-1 cursor-pointer"
+            className="hover:text-red-500 cursor-pointer"
             onClick={() => setQuantity(quantity + 1)}
           />
         </div>
       </div>
 
       <button
-        className="outline text-base-bold py-1.5 rounded-lg hover:bg-black hover:text-white"
+        className="outline text-md font-medium py-1.5 rounded-lg hover:bg-black hover:text-white"
         onClick={() => {
           cart.addItem({
             item: productInfo,

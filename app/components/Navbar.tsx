@@ -25,34 +25,34 @@ const Navbar = () => {
         <Image src="/logo.png" alt="logo" width={130} height={100} />
       </Link>
 
-      <div className="flex gap-4 text-base-bold max-lg:hidden">
+      <div className="flex gap-4 text-md font-medium max-lg:hidden">
         <Link
           href="/"
-          className={`hover:text-red-1 ${
-            pathname === "/" && "text-red-1"
+          className={`hover:text-red-500 ${
+            pathname === "/" && "text-red-500"
           }`}
         >
           Home
         </Link>
         <Link
           href={user ? "/wishlist" : "/sign-in"}
-          className={`hover:text-red-1 ${
-            pathname === "/wishlist" && "text-red-1"
+          className={`hover:text-red-500 ${
+            pathname === "/wishlist" && "text-red-500"
           }`}
         >
           Wishlist
         </Link>
         <Link
           href={user ? "/orders" : "/sign-in"}
-          className={`hover:text-red-1 ${
-            pathname === "/orders" && "text-red-1"
+          className={`hover:text-red-500 ${
+            pathname === "/orders" && "text-red-500"
           }`}
         >
           Orders
         </Link>
       </div>
 
-      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+      <div className="flex gap-3 border border-gray-700 px-3 py-1 items-center rounded-lg">
         <input
           className="outline-none max-sm:max-w-[120px]"
           placeholder="Search..."
@@ -63,7 +63,7 @@ const Navbar = () => {
           disabled={query === ""}
           onClick={() => router.push(`/search/${query}`)}
         >
-          <Search className="cursor-pointer h-4 w-4 hover:text-red-1" />
+          <Search className="cursor-pointer h-4 w-4 hover:text-red-500" />
         </button>
       </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
           className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white max-md:hidden"
         >
           <ShoppingCart />
-          <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
+          <p className="text-md font-medium">Cart ({cart.cartItems.length})</p>
         </Link>
 
         <Menu
@@ -82,19 +82,19 @@ const Navbar = () => {
         />
 
         {dropdownMenu && (
-          <div className="absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-white text-base-bold lg:hidden">
-            <Link href="/" className="hover:text-red-1">
+          <div className="absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-white text-md font-medium lg:hidden">
+            <Link href="/" className="hover:text-red-500">
               Home
             </Link>
             <Link
               href={user ? "/wishlist" : "/sign-in"}
-              className="hover:text-red-1"
+              className="hover:text-red-500"
             >
               Wishlist
             </Link>
             <Link
               href={user ? "/orders" : "/sign-in"}
-              className="hover:text-red-1"
+              className="hover:text-red-500"
             >
               Orders
             </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
               className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white"
             >
               <ShoppingCart />
-              <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
+              <p className="text-md font-medium">Cart ({cart.cartItems.length})</p>
             </Link>
           </div>
         )}
