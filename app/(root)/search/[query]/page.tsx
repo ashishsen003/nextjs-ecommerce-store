@@ -1,10 +1,11 @@
 import ProductCard from "@/app/components/ProductCard";
 import { getSearchedProducts } from "@/lib/action";
 
-const SearchPage = async ({ params }: { params: { query: string }}) => {
-  const searchedProducts = await getSearchedProducts(params.query)
+const SearchPage = async ({ params }: { params: Promise<{ query: string }>}) => {
+  const { query } = await params;
+  const searchedProducts = await getSearchedProducts(query)
 
-  const decodedQuery = decodeURIComponent(params.query)
+  const decodedQuery = decodeURIComponent(query)
 
   return (
     <div className='px-10 py-5'>

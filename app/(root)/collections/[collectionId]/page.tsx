@@ -6,9 +6,10 @@ import React from "react";
 const CollectionDetails = async ({
   params,
 }: {
-  params: { collectionId: string };
+  params: Promise<{ collectionId: string }>;
 }) => {
-  const collectionDetails = await getCollectionDetails(params.collectionId);
+  const { collectionId } = await params;
+  const collectionDetails = await getCollectionDetails(collectionId);
 
   return (
     <div className="px-10 py-5 flex flex-col items-center gap-8">

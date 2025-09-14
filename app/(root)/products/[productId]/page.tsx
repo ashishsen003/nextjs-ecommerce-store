@@ -4,9 +4,10 @@ import ProductInfo from "@/app/components/ProductInfo"
 import { getProductDetails, getRelatedProducts } from "@/lib/action"
 // import { getProductDetails, getRelatedProducts } from "@/lib/actions/actions"
 
-const ProductDetails = async ({ params }: { params: { productId: string }}) => {
-  const productDetails = await getProductDetails(params.productId)
-  const relatedProducts = await getRelatedProducts(params.productId)
+const ProductDetails = async ({ params }: { params: Promise<{ productId: string }>}) => {
+  const { productId } = await params;
+  const productDetails = await getProductDetails(productId)
+  const relatedProducts = await getRelatedProducts(productId)
 
   return (
     <>
