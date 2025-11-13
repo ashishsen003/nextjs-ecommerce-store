@@ -59,8 +59,8 @@ const Cart = () => {
           <p className="text-md">No item in cart</p>
         ) : (
           <div>
-            {cart.cartItems.map((cartItem) => (
-              <div className="w-full flex max-sm:flex-col max-sm:gap-3 hover:bg-gray-200 px-4 py-3 items-center max-sm:items-start justify-between">
+            {cart.cartItems.map((cartItem, i) => (
+              <div className="w-full flex max-sm:flex-col max-sm:gap-3 hover:bg-gray-200 px-4 py-3 items-center max-sm:items-start justify-between" key={i}>
                 <div className="flex items-center">
                   <Image
                     src={cartItem.item.media[0]}
@@ -115,7 +115,7 @@ const Cart = () => {
           <span>$ {totalRounded}</span>
         </div>
         <button
-          className="border rounded-lg text-md bg-white py-3 w-full hover:bg-black hover:text-white"
+          className="border rounded-lg text-md bg-white py-3 w-full hover:bg-black hover:text-white cursor-pointer"
           onClick={handleCheckout}
         >
           Proceed to Checkout
